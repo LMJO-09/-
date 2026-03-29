@@ -10,21 +10,19 @@
 
 <div class="grade-container">
     <div class="grade-header">
-        <h1>📒 الصف الثاني ثانوي</h1>
-        <p>اختر حقلك أولاً</p>
+        <h1>📒 الصف الثاني ثانوي (توجيهي)</h1>
+        <p>اختر حقل الدراسة أولاً</p>
     </div>
 
-    <div class="subjects-list">
-        <button class="subject-btn" onclick="showField('scientific')">🔬 الحقل الصحي</button>
-        <button class="subject-btn" onclick="showField('engineering')">⚙️ الحقل الهندسي</button>
-        <button class="subject-btn" onclick="showField('literary')">📚 الحقل الأدبي (لغات)</button>
-        <button class="subject-btn" onclick="showField('business')">💼 حقل الأعمال (ريادي)</button>
+    <div class="field-buttons">
+        <button class="field-btn" onclick="showField('scientific')">🔬 الحقل الصحي</button>
+        <button class="field-btn" onclick="showField('engineering')">⚙️ الحقل الهندسي</button>
+        <button class="field-btn" onclick="showField('languages')">📚 حقل اللغات (شريعة وقانون)</button>
+        <button class="field-btn" onclick="showField('business')">💼 حقل إدارة الأعمال</button>
     </div>
 
-    <div id="materialsContainer" style="margin-top: 30px; display: none;">
-        <div class="grade-header" style="background: #2a5298; margin-top: 20px;">
-            <h3>📚 المواد</h3>
-        </div>
+    <div id="materialsContainer" class="materials-box" style="display: none;">
+        <h3 id="fieldTitle">📚 المواد</h3>
         <div id="materialsList" class="subjects-list"></div>
     </div>
 
@@ -34,24 +32,59 @@
 </div>
 
 <script>
-    const fields = {
-        scientific: ['🔬 الأحياء', '⚛️ الكيمياء', '⚡ الفيزياء'],
-        engineering: ['📐 الرياضيات البحتة', '📊 الرياضيات التطبيقية', '⚡ الفيزياء', '⚛️ الكيمياء'],
-        literary: ['📖 الأدب والنصوص', '🗣️ البلاغة', '📝 القواعد', '🇫🇷 اللغة الفرنسية', '📜 التاريخ', '🗺️ الجغرافيا'],
-        business: ['💰 الاقتصاد', '🏢 إدارة الأعمال', '📊 المحاسبة', '📈 الرياضيات المالية']
+    const fieldsData = {
+        scientific: {
+            title: '🔬 الحقل الصحي',
+            materials: [
+                '🇬🇧 اللغة الإنجليزية (متقدم) - إجباري',
+                '🔬 الأحياء - إجباري',
+                '⚛️ الكيمياء - إجباري',
+                '🌍 علوم الأرض (اختياري) أو 📐 رياضيات متقدم (اختياري)'
+            ]
+        },
+        engineering: {
+            title: '⚙️ الحقل الهندسي',
+            materials: [
+                '🇬🇧 اللغة الإنجليزية (متقدم) - إجباري',
+                '⚡ فيزياء - إجباري',
+                '📐 رياضيات متقدم - إجباري',
+                '🌍 علوم الأرض (اختياري) أو ⚛️ الكيمياء (اختياري)'
+            ]
+        },
+        languages: {
+            title: '📚 حقل اللغات (شريعة وقانون)',
+            materials: [
+                '🇬🇧 اللغة الإنجليزية (متقدم) - إجباري',
+                '📖 اللغة العربية (تخصص) - إجباري',
+                '📜 الشريعة - إجباري',
+                '📜 التاريخ (اختياري) أو 🗺️ الجغرافيا (اختياري)'
+            ]
+        },
+        business: {
+            title: '💼 حقل إدارة الأعمال',
+            materials: [
+                '🇬🇧 اللغة الإنجليزية (متقدم) - إجباري',
+                '💰 الثقافة المالية - إجباري',
+                '📊 رياضيات الأعمال - إجباري',
+                '🗺️ الجغرافيا (اختياري) أو 🌍 علوم الأرض (اختياري)'
+            ]
+        }
     };
 
     function showField(field) {
         const container = document.getElementById('materialsContainer');
+        const fieldTitle = document.getElementById('fieldTitle');
         const materialsList = document.getElementById('materialsList');
         
-        materialsList.innerHTML = '';
+        const data = fieldsData[field];
+        fieldTitle.textContent = data.title;
         
-        fields[field].forEach(material => {
+        materialsList.innerHTML = '';
+        data.materials.forEach(material => {
             const btn = document.createElement('button');
             btn.className = 'subject-btn';
             btn.textContent = material;
-            btn.onclick = () => alert(`جاري تجهيز مادة ${material}`);
+            btn.onclick = () => alert(`📖 جاري تجهيز محتوى: ${material}\n\nهذا الدرس قيد الإعداد حالياً، سيتم إضافته قريباً إن شاء الله.`);
             materialsList.appendChild(btn);
         });
         
