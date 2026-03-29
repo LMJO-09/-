@@ -6,44 +6,98 @@
 
 body {
     font-family: 'Segoe UI', 'Tahoma', Arial, sans-serif;
-    background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
-    color: #333;
-    line-height: 1.6;
+    background: #f0f2f5;
+}
+
+/* الحاوية الرئيسية */
+.main-container {
+    display: flex;
     min-height: 100vh;
 }
 
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
+/* القائمة الجانبية */
+.sidebar {
+    width: 280px;
+    background: linear-gradient(180deg, #1e3c72 0%, #0f2b4f 100%);
+    color: white;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
 }
 
-/* الهيدر */
-header {
-    text-align: center;
+.sidebar-header {
     padding: 30px 20px;
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-    border-radius: 30px;
-    margin-bottom: 30px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    margin-bottom: 20px;
 }
 
-header h1 {
-    color: #fff;
+.sidebar-header h2 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.sidebar-header p {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-menu li {
+    margin: 5px 15px;
+}
+
+.grade-link {
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.grade-link:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateX(-5px);
+}
+
+/* المحتوى الرئيسي */
+.main-content {
+    margin-right: 280px;
+    flex: 1;
+    padding: 40px;
+}
+
+.hero {
+    background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.hero h1 {
     font-size: 2rem;
     margin-bottom: 10px;
 }
 
 .subtitle {
-    color: #ffd700;
     font-size: 1.1rem;
+    opacity: 0.9;
 }
 
-/* بيت الشعر */
 .poem-box {
-    background: #fff;
+    background: white;
     border-radius: 20px;
-    padding: 25px;
+    padding: 30px;
     text-align: center;
     margin-bottom: 30px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -56,122 +110,102 @@ header h1 {
     color: #1e3c72;
 }
 
-/* شبكة أزرار الصفوف */
-.grades-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-    margin-bottom: 40px;
+.welcome-box {
+    background: #e8f4fd;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    color: #1e3c72;
 }
 
-.grade-btn {
-    background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
-    color: white;
-    border: none;
-    padding: 18px 10px;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.grade-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
-
-/* المساعد الذكي */
-.assistant-section {
-    background: white;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.assistant-header {
-    background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
-    color: white;
-    padding: 15px 20px;
-    cursor: pointer;
-    font-size: 1.2rem;
-    font-weight: bold;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.assistant-content {
+/* تصميم الصفوف (قائمة المواد العمودية) */
+.grade-container {
+    max-width: 800px;
+    margin: 0 auto;
     padding: 20px;
 }
 
-.assistant-tip {
-    background: #fff3cd;
-    border-right: 4px solid #ffc107;
-    padding: 12px;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    font-size: 0.9rem;
-}
-
-.chat-box {
-    background: #f8f9fa;
-    border-radius: 15px;
-    padding: 15px;
-    height: 300px;
-    overflow-y: auto;
-    margin-bottom: 15px;
-}
-
-.message {
-    margin-bottom: 12px;
-    padding: 10px 15px;
-    border-radius: 18px;
-    max-width: 80%;
-    word-wrap: break-word;
-}
-
-.message.bot {
-    background: #e3f2fd;
-    color: #1e3c72;
-    border-bottom-right-radius: 5px;
-}
-
-.message.user {
-    background: #2a5298;
+.grade-header {
+    background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
     color: white;
-    margin-right: auto;
-    border-bottom-left-radius: 5px;
+    margin-bottom: 30px;
 }
 
-.chat-input-area {
+.grade-header h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.subjects-list {
     display: flex;
-    gap: 10px;
+    flex-direction: column;
+    gap: 15px;
 }
 
-.chat-input-area input {
-    flex: 1;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 25px;
-    font-size: 1rem;
+.subject-btn {
+    background: white;
+    border: none;
+    border-radius: 15px;
+    padding: 20px 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: right;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
-.chat-input-area button {
-    background: #2a5298;
+.subject-btn:hover {
+    transform: translateX(-10px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    background: #f8f9fa;
+}
+
+.back-home {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.back-btn {
+    background: #6c757d;
     color: white;
     border: none;
-    padding: 12px 25px;
-    border-radius: 25px;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-size: 1rem;
     cursor: pointer;
+    transition: all 0.3s;
 }
 
-@media (max-width: 600px) {
-    .grades-grid {
-        grid-template-columns: repeat(2, 1fr);
+.back-btn:hover {
+    background: #5a6268;
+    transform: translateY(-2px);
+}
+
+/* للجوال */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        position: relative;
+        height: auto;
     }
     
-    .message {
-        max-width: 90%;
+    .main-content {
+        margin-right: 0;
+        padding: 20px;
+    }
+    
+    .main-container {
+        flex-direction: column;
+    }
+    
+    .grade-link:hover {
+        transform: none;
     }
 }
