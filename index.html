@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>LMJO 09 | منصة تعليمية متكاملة</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1e3c72">
+    <meta name="description" content="منصة LMJO 09 التعليمية - مساعد ذكي للدراسة من الصف السابع للثاني ثانوي">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>🎓 منصة LMJO 09</h1>
+        <p class="subtitle">✨ متعاونين على التفوق ✨</p>
+    </header>
+
+    <div class="poem-box">
+        <p>إن تأخرت بالسعي نحو مجد<br>قد ينال المجد بالسعي سواك</p>
+    </div>
+
+    <!-- أزرار الصفوف -->
+    <div class="grades-grid">
+        <button class="grade-btn" data-grade="7">📘 الصف السابع</button>
+        <button class="grade-btn" data-grade="8">📗 الصف الثامن</button>
+        <button class="grade-btn" data-grade="9">📙 الصف التاسع</button>
+        <button class="grade-btn" data-grade="10">📕 الصف العاشر</button>
+        <button class="grade-btn" data-grade="11">📔 الصف الحادي عشر</button>
+        <button class="grade-btn" data-grade="12">📒 الصف الثاني ثانوي</button>
+    </div>
+
+    <!-- المساعد الذكي -->
+    <div class="assistant-section">
+        <div class="assistant-header" onclick="toggleAssistant()">
+            🤖 المساعد الذكي للدراسة <span>▼</span>
+        </div>
+        <div id="assistantContent" class="assistant-content">
+            <div class="assistant-tip">
+                📌 للدقة: اذكر اسم الكتاب + الوحدة + الدرس
+            </div>
+            <div id="chatBox" class="chat-box">
+                <div class="message bot">مرحباً! أنا المساعد الذكي. اسألني عن أي درس 😊</div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="userInput" placeholder="اكتب سؤالك هنا...">
+                <button onclick="sendMessage()">إرسال</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.querySelectorAll('.grade-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const grade = this.getAttribute('data-grade');
+            window.location.href = `grade${grade}/index.html`;
+        });
+    });
+
+    function toggleAssistant() {
+        const content = document.getElementById('assistantContent');
+        content.style.display = content.style.display === 'none' ? 'block' : 'none';
+    }
+
+    document.getElementById('userInput').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') sendMessage();
+    });
+</script>
+<script src="assistant.js"></script>
+</body>
+</html>
