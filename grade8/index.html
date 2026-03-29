@@ -8,54 +8,25 @@
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <h1>📗 الصف الثامن</h1>
-        <p class="subtitle">✨ مرحباً بك في صف الثامن ✨</p>
-    </header>
-
-    <div class="grades-grid">
-        <button class="grade-btn" onclick="alert('جاري تجهيز مادة الرياضيات')">📐 الرياضيات</button>
-        <button class="grade-btn" onclick="alert('جاري تجهيز مادة العلوم')">🔬 العلوم</button>
-        <button class="grade-btn" onclick="alert('جاري تجهيز مادة اللغة العربية')">📖 اللغة العربية</button>
-        <button class="grade-btn" onclick="alert('جاري تجهيز مادة اللغة الإنجليزية')">🇬🇧 اللغة الإنجليزية</button>
-        <button class="grade-btn" onclick="alert('جاري تجهيز مادة التربية الإسلامية')">🕌 التربية الإسلامية</button>
-        <button class="grade-btn" onclick="alert('جاري تجهيز مادة الدراسات الاجتماعية')">🌍 الدراسات الاجتماعية</button>
+<div class="grade-container">
+    <div class="grade-header">
+        <h1>📘 الصف الثامن</h1>
+        <p>اختر المادة التي تريد دراستها</p>
     </div>
 
-    <div style="text-align: center; margin: 30px 0;">
-        <button class="grade-btn" onclick="window.location.href='../index.html'" style="background: #6c757d;">🏠 العودة للرئيسية</button>
+    <div class="subjects-list">
+        <button class="subject-btn" onclick="alert('جاري تجهيز مادة الرياضيات')">📐 الرياضيات</button>
+        <button class="subject-btn" onclick="alert('جاري تجهيز مادة العلوم')">🔬 العلوم</button>
+        <button class="subject-btn" onclick="alert('جاري تجهيز مادة اللغة العربية')">📖 اللغة العربية</button>
+        <button class="subject-btn" onclick="alert('جاري تجهيز مادة اللغة الإنجليزية')">🇬🇧 اللغة الإنجليزية</button>
+        <button class="subject-btn" onclick="alert('جاري تجهيز مادة التربية الإسلامية')">🕌 التربية الإسلامية</button>
+        <button class="subject-btn" onclick="alert('جاري تجهيز مادة الدراسات الاجتماعية')">🌍 الدراسات الاجتماعية</button>
     </div>
 
-    <div class="assistant-section">
-        <div class="assistant-header" onclick="toggleAssistant()">
-            🤖 المساعد الذكي للدراسة <span>▼</span>
-        </div>
-        <div id="assistantContent" class="assistant-content">
-            <div class="assistant-tip">
-                📌 للدقة: اذكر اسم الكتاب + الوحدة + الدرس
-            </div>
-            <div id="chatBox" class="chat-box">
-                <div class="message bot">مرحباً! أنا المساعد الذكي. اسألني عن أي درس في الصف الثامن 😊</div>
-            </div>
-            <div class="chat-input-area">
-                <input type="text" id="userInput" placeholder="اكتب سؤالك هنا...">
-                <button onclick="sendMessage()">إرسال</button>
-            </div>
-        </div>
+    <div class="back-home">
+        <button class="back-btn" onclick="window.location.href='../index.html'">🏠 العودة للرئيسية</button>
     </div>
 </div>
 
-<script src="../assistant.js"></script>
-<script>
-    function toggleAssistant() {
-        const content = document.getElementById('assistantContent');
-        content.style.display = content.style.display === 'none' ? 'block' : 'none';
-    }
-
-    document.getElementById('userInput').addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') sendMessage();
-    });
-</script>
 </body>
 </html>
